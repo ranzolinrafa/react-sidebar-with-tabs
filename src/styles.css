@@ -1,0 +1,19 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+body,
+button {
+    font-family: 'Lato', sans-serif;
+}
+
+button {
+    cursor: pointer;
+}
