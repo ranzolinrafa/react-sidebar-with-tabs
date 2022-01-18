@@ -7,7 +7,7 @@ export const Container = styled.div`
     transition: width 300ms;
 
     position: relative;
-    width: 400px;
+    width: 470px;
     height: 100vh;
 
     ${(props) => {

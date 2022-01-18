@@ -1,10 +1,13 @@
 import './styles.css';
-import HomePage from './pages/HomePage';
+import TransmissionPage from './pages/TransmissionPage';
+import { TransmissionProvider } from './contexts/transmission';
 
 export default function App() {
     return (
         <div className="App">
-            <HomePage />
+            <TransmissionProvider>
+                <TransmissionPage />
+            </TransmissionProvider>
         </div>
     );
 }

@@ -10,7 +10,7 @@ const ContainerComponent = () => {
     );
 };
 
-const HomePage = () => {
+const TransmissionPage = () => {
     return (
         <S.Container>
             <S.Box style={{ maxHeight: '100vh', overflow: 'hidden' }}>
@@ -23,4 +23,4 @@ const HomePage = () => {
     );
 };
 
-export default HomePage;
+export default TransmissionPage;

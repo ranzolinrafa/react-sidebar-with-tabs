@@ -10,7 +10,7 @@ import { FaPercent } from 'react-icons/fa';
 import { BsListCheck } from 'react-icons/bs';
 
 const InteractiveBar = () => {
-    const [tabActive, setTabActive] = useState(1);
+    const [tabActive, setTabActive] = useState(3);
     const [active, setActive] = useState(true);
 
     const openTab = (tab) => {
@@ -33,8 +33,8 @@ const InteractiveBar = () => {
             </S.ButtonGroup>
             <TabPanel
                 tabActive={tabActive}
-                style={{ width: 400 }}
                 onClose={() => setActive(false)}
+                style={{ width: 470 }}
             >
                 <Tab tabIndex={1} title="Chat" component={<Chat />} />
                 <Tab tabIndex={2} title="Enquetes" component={<Pools />} />
