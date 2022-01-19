@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const Header = styled.header`
-    background-color: #0d0d0d;
-    border-bottom: 1px solid #303030;
+    background-color: ${(props) => props.theme.color.background};
+    border-bottom: 1px solid ${(props) => props.theme.color.border};
     display: flex;
     align-items: center;
     justify-content: space-between;

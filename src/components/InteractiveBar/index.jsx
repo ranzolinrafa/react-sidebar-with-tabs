@@ -1,50 +1,32 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
+import { ThemeProvider } from 'styled-components';
 import * as S from './styles';
-import TabPanel, { Tab } from '../TabPanel';
-import Chat from '../Chat';
-import Promotions from '../Promotions';
-import Pools from '../Pools';
+import TabPanel from '../TabPanel';
+import InteractiveBarButtons from '../InteractiveBarButtons';
 
-import { BsFillChatRightTextFill } from 'react-icons/bs';
-import { FaPercent } from 'react-icons/fa';
-import { BsListCheck } from 'react-icons/bs';
+import { dark, light } from '../../styles/theme';
 
-const InteractiveBar = () => {
-    const [tabActive, setTabActive] = useState(3);
+const InteractiveBar = ({ variant, tabs }) => {
+    const [tabActive, setTabActive] = useState('chat');
     const [active, setActive] = useState(true);
 
-    const openTab = (tab) => {
+    const openTab = useCallback((tab) => {
         setActive(true);
         setTabActive(tab);
-    };
+    }, []);
 
     return (
-        <S.Container active={active}>
-            <S.ButtonGroup>
-                <button onClick={() => openTab(1)}>
-                    <BsFillChatRightTextFill />
-                </button>
-                <button onClick={() => openTab(2)}>
-                    <BsListCheck />
-                </button>
-                <button onClick={() => openTab(3)}>
-                    <FaPercent />
-                </button>
-            </S.ButtonGroup>
-            <TabPanel
-                tabActive={tabActive}
-                onClose={() => setActive(false)}
-                style={{ width: 470 }}
-            >
-                <Tab tabIndex={1} title="Chat" component={<Chat />} />
-                <Tab tabIndex={2} title="Enquetes" component={<Pools />} />
-                <Tab
-                    tabIndex={3}
-                    title="Promoções"
-                    component={<Promotions />}
+        <ThemeProvider theme={variant === 'light' ? light : dark}>
+            <S.Container active={active}>
+                <InteractiveBarButtons onClick={openTab} tabs={tabs} />
+                <TabPanel
+                    tabs={tabs}
+                    tabActive={tabActive}
+                    onClose={() => setActive(false)}
+                    style={{ width: 470 }}
                 />
-            </TabPanel>
-        </S.Container>
+            </S.Container>
+        </ThemeProvider>
     );
 };
 

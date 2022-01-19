@@ -20,6 +20,7 @@ export const Partner = styled.p`
     color: rgb(255, 255, 255);
 `;
 export const Description = styled.p`
+    color: #ffffff;
     font-size: 1.5em;
     max-width: 205px;
 `;

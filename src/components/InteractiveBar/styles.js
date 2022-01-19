@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-    background-color: #111111;
-    color: #ffffff;
+    background-color: ${(props) => props.theme.color.background};
+    color: ${(props) => props.theme.color.text};
 
     transition: width 300ms;
 
@@ -13,30 +13,6 @@ export const Container = styled.div`
     ${(props) => {
         return !props.active && `width: 0`;
     }}
-`;
-
-export const ButtonGroup = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-
-    position: absolute;
-    top: 1em;
-    left: -64px;
-
-    button {
-        display: flex;
-        background-color: #11111190;
-        color: #ffffff;
-        border: 0;
-        border-radius: 50%;
-        padding: 1em;
-        transition: background-color 300ms;
-
-        &:hover {
-            background-color: #1e1e1e;
-        }
-    }
 `;
 
 export const CloseButton = styled.button`

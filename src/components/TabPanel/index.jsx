@@ -1,17 +1,10 @@
 import React from 'react';
-import * as S from './styles';
+import { getTab } from '../../configs/tabs';
 import { MdClose } from 'react-icons/md';
+import * as S from './styles';
 
-const TabPanel = ({ tabActive, children, onClose, ...props }) => {
-    let tab;
-    let title;
-
-    React.Children.map(children, function (item) {
-        if (item.props.tabIndex === tabActive) {
-            tab = item;
-            title = item.props.title;
-        }
-    });
+const TabPanel = ({ tabActive, children, onClose, tabs, ...props }) => {
+    const { title, component: TabComponent } = getTab(tabActive);
 
     return (
         <div {...props}>
@@ -21,7 +14,8 @@ const TabPanel = ({ tabActive, children, onClose, ...props }) => {
                     <MdClose size={24} color="#ffffff" />
                 </S.CloseButton>
             </S.Header>
-            {tab}
+            <TabComponent />
+            <Tab />
         </div>
     );
 };
