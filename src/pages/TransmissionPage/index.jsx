@@ -21,6 +21,7 @@ const TransmissionPage = () => {
                     active
                     variant="dark"
                     tabs={['chat', 'promotions', 'pools']}
+                    initialTab="promotions"
                 />
             </S.Box>
         </S.Container>

@@ -6,7 +6,7 @@ import Chat from '../components/Chat';
 import Promotions from '../components/Promotions';
 import Pools from '../components/Pools';
 
-const tabsConfig = [
+export const tabsConfig = [
     {
         name: 'chat',
         title: 'Chat',
@@ -28,9 +28,11 @@ const tabsConfig = [
 ];
 
 export function filterTabs(tabs) {
-    return tabsConfig.filter((item) => {
-        return tabs.includes(item.name);
-    });
+    return (
+        tabsConfig.filter((item) => {
+            return tabs.includes(item.name);
+        }) || {}
+    );
 }
 
 export function getTab(tab) {
