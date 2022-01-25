@@ -26,12 +26,7 @@ const TransmissionPage = () => {
                 <ContainerComponent />
             </S.Box>
             <S.Box flex="unset">
-                <InteractiveBar
-                    active
-                    variant="dark"
-                    tabs={['chat', 'promotions', 'pools']}
-                    initialTab="promotions"
-                >
+                <InteractiveBar active variant="dark">
                     <Tab
                         tabIndex={0}
                         title="Chat"
