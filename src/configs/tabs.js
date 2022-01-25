@@ -36,9 +36,11 @@ export function filterTabs(tabs) {
 }
 
 export function getTab(tab) {
-    return tabsConfig.find((item) => {
-        return item.name === tab;
-    });
+    return (
+        tabsConfig.find((item) => {
+            return item.name === tab;
+        }) || {}
+    );
 }
 
 export default tabsConfig;

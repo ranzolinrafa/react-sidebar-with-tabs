@@ -7,9 +7,7 @@ describe('<TabPanelButtons />', () => {
         let tabs = [];
         tabsConfig.forEach((item) => tabs.push(item.name));
 
-        const { container } = renderWithTheme(
-            <TabPanelButtons tabs={['chat']} />
-        );
+        const { container } = renderWithTheme(<TabPanelButtons tabs={tabs} />);
         expect(container.firstChild).toMatchSnapshot();
     });
 });
