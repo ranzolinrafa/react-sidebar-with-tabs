@@ -1,37 +1,59 @@
-import React, { useEffect, useState } from 'react';
-import { getTab } from '../../configs/tabs';
+import React, { useState } from 'react';
 import { MdClose } from 'react-icons/md';
 import * as S from './styles';
 
-import TabPanelButtons from './TabPanelButtons';
+const TabPanel = ({ onClickClose, children, onClickTabButtons, ...props }) => {
+    const [tabActive, setTabActive] = useState(0);
 
-const TabPanel = ({ onClickClose, tabs, initialTab, onClickTabButton }) => {
-    const [tabActive, setTabActive] = useState(initialTab);
-    const { title, component: TabComponent } = getTab(tabActive);
+    let tab;
+    let title;
 
-    useEffect(() => setTabActive(initialTab), [initialTab]);
+    React.Children.map(children, (item) => {
+        if (item.props.tabIndex === tabActive) {
+            tab = item;
+            title = item.props.title;
+        }
+    });
+
+    const handleNavButtonClick = (tabIndex) => {
+        setTabActive(tabIndex);
+        if (onClickTabButtons) onClickTabButtons();
+    };
 
     return (
-        <div>
-            <TabPanelButtons
-                tabs={tabs}
-                setTabActive={setTabActive}
-                onClick={onClickTabButton}
-            />
+        <div {...props}>
             <S.Header>
                 <h2>{title}</h2>
                 <S.CloseButton onClick={onClickClose}>
                     <MdClose size={24} color="#ffffff" />
                 </S.CloseButton>
+
+                <S.Navigation>
+                    {React.Children.map(children, (item) => {
+                        const { tabIndex, icon: Icon } = item.props;
+
+                        return (
+                            <S.NavButton
+                                key={tabIndex}
+                                onClick={() => handleNavButtonClick(tabIndex)}
+                            >
+                                <Icon size={16} />
+                            </S.NavButton>
+                        );
+                    })}
+                </S.Navigation>
             </S.Header>
-            <TabComponent />
-            <Tab />
+            {tab}
         </div>
     );
 };
 
-export const Tab = ({ component }) => {
-    return <div>{component}</div>;
+export const Tab = ({ component: Component, ...props }) => {
+    return (
+        <>
+            <Component {...props} />
+        </>
+    );
 };
 
 export default TabPanel;

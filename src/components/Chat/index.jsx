@@ -1,4 +1,6 @@
-const Chat = () => {
+const Chat = ({ transmission }) => {
+    console.log(transmission);
+
     return (
         <div>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur
