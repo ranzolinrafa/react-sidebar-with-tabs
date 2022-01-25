@@ -2,12 +2,20 @@
  * New theme objects
  */
 
+export const breakpoint = {
+    mobile: '320px',
+    tablet: '768px',
+    desktop: '1024px',
+    wide: '1440px'
+};
+
 export const dark = {
     color: {
         background: '#111111',
         border: '#303030',
         text: '#ffffff'
-    }
+    },
+    breakpoint
 };
 
 export const light = {
@@ -15,7 +23,8 @@ export const light = {
         background: '#ffffff',
         border: '#111111',
         text: '#111111'
-    }
+    },
+    breakpoint
 };
 
 /**

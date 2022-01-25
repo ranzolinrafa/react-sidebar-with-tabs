@@ -1,6 +1,15 @@
 import InteractiveBar from '../../components/InteractiveBar';
 import * as S from './styles';
 
+import Chat from '../../components/Chat';
+import Pools from '../../components/Pools';
+import Promotions from '../../components/Promotions';
+import { Tab } from '../../components/TabPanel';
+
+import { BsFillChatRightTextFill } from 'react-icons/bs';
+import { FaPercent } from 'react-icons/fa';
+import { BsListCheck } from 'react-icons/bs';
+
 const ContainerComponent = () => {
     return (
         <S.Image
@@ -22,7 +31,27 @@ const TransmissionPage = () => {
                     variant="dark"
                     tabs={['chat', 'promotions', 'pools']}
                     initialTab="promotions"
-                />
+                >
+                    <Tab
+                        tabIndex={0}
+                        title="Chat"
+                        icon={BsFillChatRightTextFill}
+                        component={Chat}
+                        transmission={99}
+                    />
+                    <Tab
+                        tabIndex={1}
+                        title="Enquetes"
+                        icon={BsListCheck}
+                        component={Pools}
+                    />
+                    <Tab
+                        tabIndex={2}
+                        title="Promoções"
+                        icon={FaPercent}
+                        component={Promotions}
+                    />
+                </InteractiveBar>
             </S.Box>
         </S.Container>
     );

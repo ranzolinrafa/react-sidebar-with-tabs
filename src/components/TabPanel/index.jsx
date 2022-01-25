@@ -8,6 +8,7 @@ const TabPanel = ({ onClickClose, children, onClickTabButtons, ...props }) => {
     let tab;
     let title;
 
+    // TODO: useMemo?
     React.Children.map(children, (item) => {
         if (item.props.tabIndex === tabActive) {
             tab = item;
@@ -36,6 +37,7 @@ const TabPanel = ({ onClickClose, children, onClickTabButtons, ...props }) => {
                             <S.NavButton
                                 key={tabIndex}
                                 onClick={() => handleNavButtonClick(tabIndex)}
+                                active={tabIndex === tabActive}
                             >
                                 <Icon size={16} />
                             </S.NavButton>
