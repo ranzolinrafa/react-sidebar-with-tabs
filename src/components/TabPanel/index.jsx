@@ -3,7 +3,7 @@ import { MdClose } from 'react-icons/md';
 import * as S from './styles';
 
 const TabPanel = ({ onClickClose, children, onClickTabButtons, ...props }) => {
-    const [tabActive, setTabActive] = useState(0);
+    const [tabActive, setTabActive] = useState('chat');
 
     let tab;
     let title;

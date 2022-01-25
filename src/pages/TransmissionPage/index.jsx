@@ -28,20 +28,20 @@ const TransmissionPage = () => {
             <S.Box flex="unset">
                 <InteractiveBar active variant="dark">
                     <Tab
-                        tabIndex={0}
+                        tabIndex="chat"
                         title="Chat"
                         icon={BsFillChatRightTextFill}
                         component={Chat}
                         transmission={99}
                     />
                     <Tab
-                        tabIndex={1}
+                        tabIndex="pools"
                         title="Enquetes"
                         icon={BsListCheck}
                         component={Pools}
                     />
                     <Tab
-                        tabIndex={2}
+                        tabIndex="promotions"
                         title="Promoções"
                         icon={FaPercent}
                         component={Promotions}
