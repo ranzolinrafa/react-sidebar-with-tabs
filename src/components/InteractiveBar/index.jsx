@@ -15,6 +15,7 @@ const InteractiveBar = ({ variant, children }) => {
                 <TabPanel
                     style={{ width: 470 }}
                     onClickClose={() => setActive(false)}
+                    onClickTabButtons={() => setActive(true)}
                 >
                     {children}
                 </TabPanel>
