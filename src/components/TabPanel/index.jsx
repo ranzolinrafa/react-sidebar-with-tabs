@@ -3,13 +3,13 @@ import { MdClose } from 'react-icons/md';
 import * as S from './styles';
 
 const TabPanel = ({ onClickClose, children, onClickTabButtons, ...props }) => {
-    const [tabActive, setTabActive] = useState('chat');
+    const [tabActive, setTabActive] = useState(0);
 
     let tab;
     let title;
 
     // TODO: useMemo?
-    React.Children.map(children, (item) => {
+    React.Children.toArray(children).map((item) => {
         if (item.props.tabIndex === tabActive) {
             tab = item;
             title = item.props.title;
@@ -30,7 +30,7 @@ const TabPanel = ({ onClickClose, children, onClickTabButtons, ...props }) => {
                 </S.CloseButton>
 
                 <S.Navigation>
-                    {React.Children.map(children, (item) => {
+                    {React.Children.toArray(children).map((item) => {
                         const { tabIndex, icon: Icon } = item.props;
 
                         return (
